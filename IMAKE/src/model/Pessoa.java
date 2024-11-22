@@ -2,10 +2,17 @@ package model;
 
 public abstract class Pessoa {
     //atributos
-    protected String nome, cpf, telefone, email, endereco, senha;
+    protected String nome, CPF, telefone, email, endereco, senha;
 
     //construtores
-
+    public Pessoa(String nome, String CPF, String telefone, String email, String endereco, String senha) {
+        this.nome = nome;
+        this.CPF = CPF;
+        this.telefone = telefone;
+        this.email = email;
+        this.endereco = endereco;
+        this.senha = senha;
+    }
 
     //getters e setters
     public String getNome() {
@@ -17,11 +24,11 @@ public abstract class Pessoa {
     }
 
     public String getCpf() {
-        return cpf;
+        return CPF;
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        this.CPF = CPF;
     }
 
     public String getTelefone() {
@@ -59,7 +66,7 @@ public abstract class Pessoa {
     //toString
     @Override
     public String toString(){
-        return "Nome: " + nome + " | CPF: " + cpf + " | Telefone: " + telefone +
+        return "Nome: " + nome + " | CPF: " + CPF + " | Telefone: " + telefone +
                 " | Email: " + email + " | Endereço: " + endereco;
     }
 }
