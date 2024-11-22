@@ -3,7 +3,7 @@ Projeto de um app para vendas de makes desenvolvido em Java para 2º avaliação
 Equipe formada por:
 --> Ana Beatriz Cordeiro Belmiro
 --> Raíssa Cunha de Medeiros Pinheiro
---> Vincius Rodrigues de Douza
+--> Vinicius Souza Rodrigues
 
 Objetivo: Entregar com base em todo ensinamento adquirido ao longo do periodo, uma primeira versão de um sistema desenvolvido em Java para aplicar na prática toda a teoria. 
 
