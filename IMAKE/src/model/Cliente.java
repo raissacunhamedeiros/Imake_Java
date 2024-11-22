@@ -7,8 +7,8 @@ public class Cliente extends Pessoa {
 
     //construtores
     public Cliente(TipoPessoa tipoPessoa, String nome, String cpf, String telefone, String email, String endereco, String senha){
-        super(nome, cpf, telefone, email, endereco,senha); //colocar const Pessoa
-    }
+        super(nome, cpf, telefone, email, endereco,senha);
+    } //finalizar construtor Pessoa
 
     //get
     public TipoPessoa getTipoPessoa() {
