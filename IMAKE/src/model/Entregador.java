@@ -2,6 +2,7 @@ package model;
 import Enum.*;
 
 public class Entregador extends Pessoa{
+    private String meioEntrega;
     private final TipoPessoa tipoPessoa = TipoPessoa.ENTREGADOR;
     //sera sempre tipo entregador, nao podendo ser alterado
 
@@ -10,9 +11,17 @@ public class Entregador extends Pessoa{
         super(nome, cpf, telefone, email, endereco, senha);
     } //finalizar const Pessoa
 
-    //get
+    //get e set
     public TipoPessoa getTipoPessoa() {
         return tipoPessoa;
+    }
+
+    public String getMeioEntrega() {
+        return meioEntrega;
+    }
+
+    public void setMeioEntrega(String meioEntrega) {
+        this.meioEntrega = meioEntrega;
     }
 
     //toString
