@@ -6,6 +6,10 @@ public class Produto {
     private float preco;
 
     //Construtor
+    public Produto(){
+
+    }
+
     public Produto(String IDProduto, String nome, int estoque, float preco) {
         this.IDProduto = IDProduto;
         this.nome = nome;
