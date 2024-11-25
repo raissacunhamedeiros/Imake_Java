@@ -1,8 +1,12 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Loja {
     //variaveis
     private String ID, CNPJ, nome, telefone, email, endereco, senha;
+    private List<Produto> estoque;
 
     //contrutor
     public Loja(String ID, String CNPJ, String nome, String telefone, String email, String endereco, String senha) {
@@ -13,9 +17,15 @@ public class Loja {
         this.email = email;
         this.endereco = endereco;
         this.senha = senha;
+        this.estoque = new ArrayList<>();
     }
 
     //get e set
+
+    public List<Produto> getEstoque() {
+        return estoque;
+    }
+
     public String getSenha() {
         return senha;
     }
@@ -70,5 +80,9 @@ public class Loja {
 
     public void setID(String ID) {
         this.ID = ID;
+    }
+
+    public void adicionarProduto(Produto produto) {
+        this.estoque.add(produto);
     }
 }
