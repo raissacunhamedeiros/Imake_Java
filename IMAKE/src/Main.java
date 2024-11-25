@@ -10,7 +10,7 @@ public class Main {
         Fake_DB data = new Fake_DB();
         Scanner scanner = new Scanner(System.in);
         Scanner sc = new Scanner(System.in);
-        ServiceProduto SP = new ServiceProduto();
+
         String resp;
         int id_loja = 1;
 
@@ -40,11 +40,28 @@ public class Main {
             } else {
                 System.out.println("aq");
             }
+
             System.out.println("Digite o ID da loja!: ");
             int id = sc.nextInt();
             Loja loja_recebida = data.buscarPorId(id);
             System.out.println(loja_recebida.getNome());
-        }
 
+
+            // main raíssa:
+
+            Loja loja1 = new Loja(1, "123456789", "Loja A", "(11) 1111-1111", "loja1@email.com", "Rua A, 123", "senha123");
+            Loja loja2 = new Loja(2, "987654321", "Loja B", "(22) 2222-2222", "loja2@email.com", "Rua B, 456", "senha456");
+
+            data.setLojas_disponiveis(loja1);
+            data.setLojas_disponiveis(loja2);
+
+            ServiceProduto serviceProduto = new ServiceProduto();
+
+            serviceProduto.cadastrarProduto(data, 1);
+            System.out.println("Produtos cadastrados na " + loja1.getNome() + ":");
+            for (Produto produto : loja1.getEstoque()) {
+                System.out.println(produto);
+            }
+        }
     }
 }

@@ -26,4 +26,5 @@ public class Fake_DB {
         }
         return null;
     }
+    // Listar ids da loja, (para saber id)
 }

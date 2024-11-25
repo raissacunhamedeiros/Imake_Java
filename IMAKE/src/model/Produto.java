@@ -3,18 +3,19 @@ package model;
 public class Produto {
     private String IDProduto, nome;
     private int estoque;
-    private float preco;
+    private double preco;
 
     //Construtor
-    public Produto(){
 
-    }
-
-    public Produto(String IDProduto, String nome, int estoque, float preco) {
-        this.IDProduto = IDProduto;
+    public Produto(String nome, int estoque, double preco, String IDProduto) {
         this.nome = nome;
         this.estoque = estoque;
         this.preco = preco;
+        this.IDProduto = IDProduto;
+    }
+
+    public Produto(){
+
     }
 
     //Get e set
@@ -27,14 +28,6 @@ public class Produto {
         this.IDProduto = IDProduto;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public int getEstoque() {
         return estoque;
     }
@@ -43,13 +36,22 @@ public class Produto {
         this.estoque = estoque;
     }
 
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
 
     //To string
 
