@@ -5,11 +5,12 @@ import java.util.List;
 
 public class Loja {
     //variaveis
-    private String ID, CNPJ, nome, telefone, email, endereco, senha;
+    private String CNPJ, nome, telefone, email, endereco, senha;
+    private int ID;
     private List<Produto> estoque;
 
     //contrutor
-    public Loja(String ID, String CNPJ, String nome, String telefone, String email, String endereco, String senha) {
+    public Loja(int ID, String CNPJ, String nome, String telefone, String email, String endereco, String senha) {
         this.ID = ID;
         this.CNPJ = CNPJ;
         this.nome = nome;
@@ -19,6 +20,10 @@ public class Loja {
         this.senha = senha;
         this.estoque = new ArrayList<>();
     }
+
+    public Loja() {
+
+    };
 
     //get e set
 
@@ -70,7 +75,7 @@ public class Loja {
         return CNPJ;
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
@@ -78,11 +83,16 @@ public class Loja {
         this.CNPJ = CNPJ;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 
+    //Função dos produtos
     public void adicionarProduto(Produto produto) {
         this.estoque.add(produto);
+    }
+
+    public void editarProduto(String quantidade, String ID) {
+        //andamento
     }
 }
