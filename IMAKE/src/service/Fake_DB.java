@@ -1,12 +1,14 @@
 package service;
 
 import model.Loja;
+import model.Produto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Fake_DB {
     private List<Loja> lojas_disponiveis = new ArrayList<>();
+    private List<Produto> estoque;
 
     public List<Loja> getLojas_disponiveis() {
         return lojas_disponiveis;
