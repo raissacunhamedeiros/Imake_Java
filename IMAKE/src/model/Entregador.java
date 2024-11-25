@@ -7,7 +7,6 @@ public class Entregador extends Pessoa{
     private int totalEntregas;
     private double totalComissoes;
 
-
     //construtor
     public Entregador(String nome, String cpf, String telefone, String email, String endereco, String senha){
         super(nome, cpf, telefone, email, endereco, senha);
@@ -70,10 +69,4 @@ public class Entregador extends Pessoa{
                 "\nTotal de entregas: " + totalEntregas +
                 "\nTotal comissões - R$: " + String.format("%.2f", totalComissoes);
     }
-
-
-
-
-
-
 }
