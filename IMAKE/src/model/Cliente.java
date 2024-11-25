@@ -16,10 +16,13 @@ public class Cliente extends Pessoa {
     }
 
     //métodos
+    public void chamarCarrinho(){
 
+    }
 
+    public void escolherPagamento(){
 
-
+    }
 
     //toString
     @Override
