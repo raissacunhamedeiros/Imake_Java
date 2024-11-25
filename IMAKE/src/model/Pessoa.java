@@ -2,12 +2,12 @@ package model;
 
 public abstract class Pessoa {
     //atributos
-    protected String nome, CPF, telefone, email, endereco, senha;
+    protected String nome, cpf, telefone, email, endereco, senha;
 
     //construtores
-    public Pessoa(String nome, String CPF, String telefone, String email, String endereco, String senha) {
+    public Pessoa(String nome, String cpf, String telefone, String email, String endereco, String senha) {
         this.nome = nome;
-        this.CPF = CPF;
+        this.cpf = cpf;
         this.telefone = telefone;
         this.email = email;
         this.endereco = endereco;
@@ -24,11 +24,16 @@ public abstract class Pessoa {
     }
 
     public String getCpf() {
-        return CPF;
+        return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.CPF = CPF;
+    public void setCpf(String cpf) { //verificação cpf 11 dig - numeros
+        String cpfNum = cpf.replaceAll("\\D", ""); //o que nao for numero, substitui por vazio
+        if (cpfNum.length() == 11){
+            this.cpf = cpfNum;
+        } else {
+            System.out.println("CPF inválido");
+        }
     }
 
     public String getTelefone() {
@@ -66,7 +71,7 @@ public abstract class Pessoa {
     //toString
     @Override
     public String toString(){
-        return "Nome: " + nome + " | CPF: " + CPF + " | Telefone: " + telefone +
+        return "Nome: " + nome + " | CPF: " + cpf + " | Telefone: " + telefone +
                 " | Email: " + email + " | Endereço: " + endereco;
     }
 }
