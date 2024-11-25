@@ -1,11 +1,13 @@
 import model.Loja;
 import model.Produto;
+import service.Fake_DB;
 import service.ServiceProduto;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Fake_DB data = new Fake_DB();
         Scanner scanner = new Scanner(System.in);
         Scanner sc = new Scanner(System.in);
         ServiceProduto SP = new ServiceProduto();
@@ -33,28 +35,16 @@ public class Main {
                     System.out.println("Digite a sua senhha: ");
                     loja1.setSenha(sc.next());
                     System.out.println("Conta criada com sucesso!");
+                    data.setLojas_disponiveis(loja1);
                 }
             } else {
                 System.out.println("aq");
             }
+            System.out.println("Digite o ID da loja!: ");
+            int id = sc.nextInt();
+            Loja loja_recebida = data.buscarPorId(id);
+            System.out.println(loja_recebida.getNome());
         }
 
-        do {
-            Produto produtoTeste= new Produto(); //Precisa ser instanciado dentro do Do while para não sobrescrever o primeiro produto cadastrado
-            System.out.println("Digite o nome do produto: ");
-            produtoTeste.setNome(scanner.next());
-            System.out.println("Digite o estoque do produto: ");
-            produtoTeste.setEstoque(scanner.nextInt());
-            System.out.println("Digite o ID do produto: ");
-            produtoTeste.setIDProduto(scanner.next());
-            System.out.println("Digite o valor do produto: R$ ");
-            produtoTeste.setPreco(scanner.nextFloat());
-
-            SP.cadastrarProduto(produtoTeste);
-            System.out.println(SP.listar());
-
-            System.out.println("Você gostaria de cadastrar outro produto? [S/N]");
-            resp= scanner.next();
-        } while(resp.equalsIgnoreCase("S"));
     }
 }
