@@ -46,6 +46,3 @@ public class ServiceProduto {
     }
 }
 
-
-    //public ArrayList<Produto>listar(){
-        //return ;
