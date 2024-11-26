@@ -49,3 +49,16 @@ public class ServiceProduto {
 
     //public ArrayList<Produto>listar(){
         //return ;
+
+
+/*
+a classe Loja tem metodo de cadastrarProduto() que delega a logica para
+o ServiceProduto.
+
+ServiceProduto gerencia o produto, cadastro/edicçao/remoçao/busca/etc.
+
+Estoque:
+na classe Loja - cada loja tem seu proprio estoque
+visualizaçao geral: atraves do FakeDB ou ServiceProduto poderá centralizar
+os estoques de todas as lojas.
+ */
