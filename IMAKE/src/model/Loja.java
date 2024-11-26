@@ -88,11 +88,17 @@ public class Loja {
     }
 
     //Função dos produtos
+
     public void adicionarProduto(Produto produto) {
         this.estoque.add(produto);
     }
 
-    public void editarProduto(String quantidade, String ID) {
-        //andamento
+    public void quantidadeProduto(int quantidade, String ID) {
+        for (Produto produto : estoque) {
+            if (produto.getIDProduto().equals(ID)) {
+                int nova_quantidade = produto.getEstoque() + quantidade;
+                produto.setEstoque(nova_quantidade);
+            }
+        }
     }
 }
