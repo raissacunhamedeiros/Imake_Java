@@ -8,6 +8,9 @@ public class Venda {
         this.pessoa = pessoa;
         this.loja = loja;
     }
+    public Venda(){
+
+    }
 
     public Loja getLoja() {
         return loja;
@@ -24,6 +27,12 @@ public class Venda {
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
+
+    public void comprarProdutos(){
+
+    }
+
+
 }
 
 
