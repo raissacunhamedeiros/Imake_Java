@@ -40,8 +40,11 @@ public class Carrinho {
     public ArrayList<ServiceCarrinho.ItemCarrinho> getItens() {
         return itens;
     }
-}
 
+    public void limparCarrinho() {
+        itens.clear();
+    }
+}
 /*
 a Classe Carrinho chama o ServiceCarrinho para adc/remover produtos
 O carrinho é att dinamicamente

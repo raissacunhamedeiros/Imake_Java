@@ -8,6 +8,17 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String escolherLoja;
 
+        System.out.println("=======================================");
+        System.out.println("                 Imake                 ");
+        System.out.println("=======================================");
+        System.out.println("----------   Bem vindo(a)!   ----------");
+        System.out.println("=======================================");
+        System.out.println("┌─────────────────────────────────────┐");
+        System.out.println("│               LOGIN                 │");
+        System.out.println("├─────────────────────────────────────┤");
+        
+
+
         // Main Raíssa (não mexer, obg <3):
         Loja loja1 = new Loja(01,"001.002.003/0001-04","DivasMake","83996206872","loja01@email.com","rua desespero, n82","senha123");
         Loja loja2 = new Loja(02,"001.002.003/0001-05","MakeDelas","83996206870","loja02@email.com","rua da amargura, n85","senha124");
