@@ -1,48 +1,53 @@
 package service;
 import model.Produto;
 import model.Loja;
-import java.util.Scanner;
-
-
 
 public class ServiceProduto {
+    private Loja loja;
 
-    //Cadastrando o produto:
-    public void cadastrarProduto(Fake_DB data, int idLoja) {
-        // Busca a loja específica pelo ID
-        Loja lojaAtual = data.buscarPorId(idLoja);
-        if (lojaAtual == null) {
-            System.out.println("Loja com ID " + idLoja + " não encontrada!");
+    //Construtor para garantir que esteja em uma loja por vez;
+    public ServiceProduto(Loja loja){
+        this.loja= loja;
+    }
+
+    public void cadastrarProduto(Produto produto) {
+        loja.adicionarProduto(produto);
+        System.out.println("Cadastro efetuado com sucesso");
+    }
+
+    //Listar
+
+    public void listarProdutos() {
+        if (loja.getProdutos().isEmpty()) {
+            System.out.println("A loja " + loja.getNome() + " não possui produtos cadastrados.");
             return;
         }
+        System.out.println("Produtos da loja " + loja.getNome() + ":");
+        for (Produto produto : loja.getProdutos()) {
+            System.out.println(produto); // Usa o toString da classe Produto
+        }
+    }
 
-        Scanner sc = new Scanner(System.in);
-        String resposta;
+    //Atualizar
+    public void atualizarProduto(String nomeProduto, String novoNome) {
+        Produto produto = loja.buscarProdutoPorNome(nomeProduto);
+        if (produto != null) {
+            produto.setNome(novoNome);
+            System.out.println("Produto " + nomeProduto + " atualizado para " + novoNome + " na loja " + loja.getNome());
+        } else {
+            System.out.println("Produto " + nomeProduto + " não encontrado na loja " + loja.getNome());
+        }
+    }
 
-        do {
-            // Criação do produto com entrada de dados
-            Produto produto = new Produto();
-
-            System.out.println("Digite o nome do produto: ");
-            produto.setNome(sc.next());
-
-            System.out.println("Digite o IDProduto: ");
-            produto.setIDProduto(sc.next());
-
-            System.out.println("Digite a quantidade de entrada no estoque: ");
-            produto.setEstoque(sc.nextInt());
-
-            System.out.println("Digite o valor do produto: R$ ");
-            produto.setPreco(sc.nextDouble());
-
-            lojaAtual.adicionarProduto(produto);
-            System.out.println("Produto cadastrado com sucesso na loja " + lojaAtual.getNome() + "!");
-
-            // Pergunta se deseja cadastrar outro produto
-            System.out.println("Você gostaria de cadastrar outro produto para a mesma loja? [S/N]");
-            resposta = sc.next();
-
-        } while (resposta.equalsIgnoreCase("S"));
+    // Remover um produto pelo nome
+    public void removerProduto(String nomeProduto) {
+        Produto produto = loja.buscarProdutoPorNome(nomeProduto);
+        if (produto != null) {
+            loja.removerProduto(produto);
+            System.out.println("Produto " + nomeProduto + " removido da loja " + loja.getNome());
+        } else {
+            System.out.println("Produto " + nomeProduto + " não encontrado na loja " + loja.getNome());
+        }
     }
 }
 

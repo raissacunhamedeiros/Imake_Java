@@ -23,7 +23,9 @@ public class Loja {
 
     public Loja() {
 
-    };
+    }
+
+    ;
 
     //get e set
 
@@ -87,18 +89,25 @@ public class Loja {
         this.ID = ID;
     }
 
-    //Função dos produtos
 
+    // Métodos para manipular os produtos
     public void adicionarProduto(Produto produto) {
-        this.estoque.add(produto);
+        estoque.add(produto);
     }
 
-    public void quantidadeProduto(int quantidade, String ID) {
+    public void removerProduto(Produto produto) {
+        estoque.remove(produto);
+    }
+
+    public Produto buscarProdutoPorNome(String nome) {
         for (Produto produto : estoque) {
-            if (produto.getIDProduto().equals(ID)) {
-                int nova_quantidade = produto.getEstoque() + quantidade;
-                produto.setEstoque(nova_quantidade);
+            if (produto.getNome().equalsIgnoreCase(nome)) {
+                return produto;
             }
         }
+        return null; // Retorna null se não encontrar
     }
+
 }
+
+
