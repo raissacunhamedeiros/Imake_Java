@@ -1,7 +1,6 @@
 package service;
 import model.Cliente;
 import model.Entregador;
-
 import java.util.ArrayList;
 
 public class ServiceCliente {

@@ -18,12 +18,12 @@ public class ServiceProduto {
     //Listar
 
     public void listarProdutos() {
-        if (loja.getProdutos().isEmpty()) {
+        if (loja.getEstoque().isEmpty()) {
             System.out.println("A loja " + loja.getNome() + " não possui produtos cadastrados.");
             return;
         }
         System.out.println("Produtos da loja " + loja.getNome() + ":");
-        for (Produto produto : loja.getProdutos()) {
+        for (Produto produto : loja.getEstoque()) {
             System.out.println(produto); // Usa o toString da classe Produto
         }
     }
