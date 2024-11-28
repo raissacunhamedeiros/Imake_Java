@@ -23,24 +23,37 @@ public class Main {
         System.out.println("├─────────────────────────────────────┤");
 
         //pode ser adicionado um while aq para repeticao
-        System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
-        String escolhaUsuario = sc.next();
-        if (escolhaUsuario.equalsIgnoreCase("l")) {
-            System.out.println("Digite o seu email!: ");
-            String email = sc.next();
-            System.out.println("Digite a sua senha!: ");
-            String senha = sc.next();
+        System.out.println("Digite qual o seu tipo de Usuario!: 1 para [usuario], 2 para [estabelecimento] ou 3 para [entregador]");
+        int tipo_usuario = sc.nextInt();
 
-            boolean resultado = serviceClienteTeste.verificarInfos(email, senha);
-            if (resultado == true) {
-                System.out.println("login deu certo!");
-            } else {
-                System.out.println("login deu errado!");
+        if (tipo_usuario == 1) {
+            System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
+            String escolhaUsuario = sc.next();
+            if (escolhaUsuario.equalsIgnoreCase("l")) {
+                System.out.println("Digite o seu email!: ");
+                String email = sc.next();
+                System.out.println("Digite a sua senha!: ");
+                String senha = sc.next();
+
+                boolean resultado = serviceClienteTeste.verificarInfos(email, senha);
+                if (resultado == true) {
+                    System.out.println("login deu certo!");
+                } else {
+                    System.out.println("login deu errado!");
+                }
+            } else if (escolhaUsuario.equalsIgnoreCase("c")) {
+                //cadastro do usuario
+                System.out.println("Digite seu nome!: ");
+
             }
-        } else if (escolhaUsuario.equalsIgnoreCase("c")) {
-            System.out.println("Digite seu nome!: ");
-            sc.next();
+        } else if (tipo_usuario == 2) {
+            System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
+            //lojas
+        } else if (tipo_usuario == 3) {
+            System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
+            //entregadores
         }
+
 
         // Main Raíssa (não mexer, obg <3):
         Loja loja1 = new Loja(01,"001.002.003/0001-04","DivasMake","83996206872","loja01@email.com","rua desespero, n82","senha123");
