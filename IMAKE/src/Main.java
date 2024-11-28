@@ -8,10 +8,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int opCliente;
+        int clienteCarrinho;
+        String escolherLoja;
 
         ServiceCliente serviceClienteTeste = new ServiceCliente();
 
-        String escolherLoja;
 
         System.out.println("=======================================");
         System.out.println("                 Imake                 ");
@@ -21,13 +23,68 @@ public class Main {
         System.out.println("┌─────────────────────────────────────┐");
         System.out.println("│               LOGIN                 │");
         System.out.println("├─────────────────────────────────────┤");
-
+        System.out.println("│                                     │");
 
         //pode ser adicionado um while aq para repeticao
-        System.out.println("Digite qual o seu tipo de Usuario!: 1 para [usuario], 2 para [estabelecimento] ou 3 para [entregador]");
-        int tipo_usuario = sc.nextInt();
+        System.out.println("│ Digite qual o seu tipo de Usuário:  │");
+        System.out.println("│ [1] - Cliente                       │");
+        System.out.println("│ [2] - Loja                          │");
+        System.out.println("│ [3] - Entregador                    │");
+        System.out.println("=======================================");
+        /*int tipo_usuario = sc.nextInt();*/
+        int tipoUsuario = sc.nextInt();
 
-        if (tipo_usuario == 1) {
+        if (tipoUsuario == 1) {
+            fluxoCliente(sc, serviceClienteTeste);
+        } else if (tipoUsuario == 2) {
+            System.out.println("Fluxo de loja em construção...");
+        } else if (tipoUsuario == 3) {
+            System.out.println("Fluxo de entregador em construção...");
+        } else {
+            System.out.println("Opção inválida!");
+        }
+
+        sc.close();
+    }
+
+    public static void fluxoCliente(Scanner sc, ServiceCliente serviceCliente) {
+        System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
+        String escolhaUsuario = sc.next();
+
+        if (escolhaUsuario.equalsIgnoreCase("l")) {
+            // Login do cliente
+            System.out.println("Digite o seu email: ");
+            String email = sc.next();
+            System.out.println("Digite a sua senha: ");
+            String senha = sc.next();
+
+            if (serviceCliente.verificarInfos(email, senha)) {
+                System.out.println("Login realizado com sucesso!");
+                menuCliente(sc, serviceCliente);
+            } else {
+                System.out.println("Email ou senha inválidos.");
+            }
+
+        } else if (escolhaUsuario.equalsIgnoreCase("c")) {
+            // Cadastro do cliente
+            System.out.println("Digite seu nome: ");
+            String nome = sc.next();
+            System.out.println("Digite seu email: ");
+            String email = sc.next();
+            System.out.println("Digite uma senha: ");
+            String senha = sc.next();
+
+            Cliente novoCliente = new Cliente(nome, email, senha);
+            serviceCliente.cadastrarCliente(novoCliente);
+
+            System.out.println("Cadastro realizado com sucesso!");
+            menuCliente(sc, serviceCliente);
+        } else {
+            System.out.println("Opção inválida! Retornando ao menu inicial.");
+        }
+    }
+
+        /*if (tipo_usuario == 1) {
             System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
             String escolhaUsuario = sc.next();
             if (escolhaUsuario.equalsIgnoreCase("l")) {
@@ -39,24 +96,121 @@ public class Main {
                 boolean resultado = serviceClienteTeste.verificarInfos(email, senha);
                 if (resultado == true) {
                     System.out.println("login deu certo!");
+                    //menuCliente()
                 } else {
                     System.out.println("login deu errado!");
                 }
             } else if (escolhaUsuario.equalsIgnoreCase("c")) {
                 //cadastro do usuario
                 System.out.println("Digite seu nome!: ");
+        }else if (tipo_usuario == 2) {
 
-            }
-        } else if (tipo_usuario == 2) {
-            System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
+            } System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
+
             //lojas
+
+
         } else if (tipo_usuario == 3) {
             System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
             //entregadores
+        }*/
+
+    //Fluxo cliente:
+    // tela Cliente:
+    public static void menuCliente(Scanner sc, ServiceCliente serviceCliente) {
+        int opCliente;
+        do {
+            System.out.println("=======================================");
+            System.out.println("                 Imake                 ");
+            System.out.println("=======================================");
+            System.out.println("[1]- Ver lojas ");
+            System.out.println("[2]- Carrinho ");
+            System.out.println("[3]- Realizar Compra");
+            System.out.println("[4]-Sair");
+            System.out.println("Escolha uma opção:  ");
+            opCliente = sc.nextInt();
+
+            switch (opCliente) {
+                case 1:
+                    System.out.println("=======================================");
+                    System.out.println("             Lojas Imake:              ");
+                    System.out.println("=======================================");
+                    //Selecionar a loja
+                    //listar lojas: listarLojas();
+                    break;
+                //Método para chamar as lojas (listar.loja?)
+                case 2:
+                    menuCarrinho(sc);
+                    break;
+                case 3:
+                    System.out.println("=======================================");
+                    System.out.println("          Realizar compra              ");
+                    System.out.println("=======================================");
+                    realizarCompra();
+                    break;
+
+                // Metodo de vendas
+                case 4:
+                    System.out.println("========================================");
+                    System.out.println("Obrigada pela preferência, até a próxima");
+                    System.out.println("              Equipe Imake              ");
+                    System.out.println("========================================");
+                    break;
+            }
+        } while (opCliente != 4);
+    }
+
+    //Menu carrinho
+    public static void menuCarrinho(Scanner sc) {
+        System.out.println("=======================================");
+        System.out.println("         Bem vindo ao carrinho         ");
+        System.out.println("=======================================");
+        System.out.println("[1] - Ver carrinho ");
+        System.out.println("[2] - Remover produto");
+        System.out.println("[3] - Limpar carrinho");
+        System.out.println("[4] - Voltar para o menu");
+        System.out.println("Escolha uma opção: ");
+        int opcao = sc.nextInt();
+
+        switch (opcao) {
+            case 1:
+                // Exibir carrinho
+                break;
+
+            case 2:
+                // Remover produto
+                break;
+
+            case 3:
+                // Limpar carrinho
+                break;
+
+            case 4:
+                // Voltar
+                break;
+
+            default:
+                System.out.println("Opção inválida! Retornando ao menu.");
         }
+    }
+
+    // Metodo para compra
+
+    public static void realizarCompra() {
+        System.out.println("=======================================");
+        System.out.println("          Realizar compra              ");
+        System.out.println("=======================================");
+        // Implementar lógica de compra
+    }
 
 
-        // Main Raíssa (não mexer, obg <3):
+}
+
+
+
+
+
+        /* Main Raíssa (não mexer, obg <3):
         Loja loja1 = new Loja(01,"001.002.003/0001-04","DivasMake","83996206872","loja01@email.com","rua desespero, n82","senha123");
         Loja loja2 = new Loja(02,"001.002.003/0001-05","MakeDelas","83996206870","loja02@email.com","rua da amargura, n85","senha124");
 
@@ -124,7 +278,9 @@ public class Main {
         String nomeDeletar = sc.nextLine();
         spEscolhido.removerProduto(nomeDeletar);
     }
-}
+    */
+
+
 
 
 //public class Main {
