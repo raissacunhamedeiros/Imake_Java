@@ -24,7 +24,8 @@ public class Main {
 
         //pode ser adicionado um while aq para repeticao
         System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
-        if (sc.next().equalsIgnoreCase("l")) {
+        String escolhaUsuario = sc.next();
+        if (escolhaUsuario.equalsIgnoreCase("l")) {
             System.out.println("Digite o seu email!: ");
             String email = sc.next();
             System.out.println("Digite a sua senha!: ");
@@ -36,6 +37,9 @@ public class Main {
             } else {
                 System.out.println("login deu errado!");
             }
+        } else if (escolhaUsuario.equalsIgnoreCase("c")) {
+            System.out.println("Digite seu nome!: ");
+            sc.next();
         }
 
         // Main Raíssa (não mexer, obg <3):
