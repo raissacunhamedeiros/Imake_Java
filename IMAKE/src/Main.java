@@ -22,6 +22,7 @@ public class Main {
         System.out.println("│               LOGIN                 │");
         System.out.println("├─────────────────────────────────────┤");
 
+
         //pode ser adicionado um while aq para repeticao
         System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
         String escolhaUsuario = sc.next();
