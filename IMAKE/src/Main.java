@@ -22,6 +22,7 @@ public class Main {
         System.out.println("│               LOGIN                 │");
         System.out.println("├─────────────────────────────────────┤");
 
+
         //pode ser adicionado um while aq para repeticao
         System.out.println("Digite qual o seu tipo de Usuario!: 1 para [usuario], 2 para [estabelecimento] ou 3 para [entregador]");
         int tipo_usuario = sc.nextInt();
