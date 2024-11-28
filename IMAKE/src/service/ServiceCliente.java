@@ -7,6 +7,17 @@ public class ServiceCliente {
     private final ArrayList<Cliente> clientes = new ArrayList<>();
 
     //métodos
+
+    //verificar email e senha
+    public boolean verificarInfos(String email, String senha) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getEmail().equals(email) && cliente.getSenha().equals(senha)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void cadastrarCliente(Cliente cliente){
         for (Cliente c : clientes){
             if (c.getCpf().equals(cliente.getCpf())){
