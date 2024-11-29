@@ -2,6 +2,8 @@ import model.Cliente;
 import model.Loja;
 import model.Produto;
 import service.ServiceCliente;
+import service.ServiceEntregador;
+import service.ServiceLoja;
 import service.ServiceProduto;
 import java.util.Scanner;
 
@@ -202,7 +204,116 @@ public class Main {
         System.out.println("=======================================");
         // Implementar lógica de compra
     }
+    public static void menuLoja(Scanner sc, ServiceLoja serviceLoja) {
+        int opLoja;
+        do {
+            System.out.println("=======================================");
+            System.out.println("                 Imake                 ");
+            System.out.println("   Seja Bem vindo a sua loja virtual!  ");
+            System.out.println("=======================================");
+            System.out.println("[1]- Adicionar Produto ");
+            System.out.println("[2]- Listar produtos ");
+            System.out.println("[3]- Remover Produtos");
+            System.out.println("[4]-Buscar Produtos por nome");
+            System.out.println("[5]-Entrega");
+            System.out.println("[6]-Sair");
 
+            System.out.println("Escolha uma opção:  ");
+            opLoja = sc.nextInt();
+
+            switch (opLoja) {
+                case 1:
+                    System.out.println("=======================================");
+                    System.out.println("         Adicionar Produtos            ");
+                    System.out.println("=======================================");
+
+                    //addproduto();
+                    break;
+                case 2:
+                    System.out.println("=======================================");
+                    System.out.println("           Seus Produtos               ");
+                    System.out.println("=======================================");
+                    //listarprodutos();
+                    break;
+                case 3:
+                    System.out.println("=======================================");
+                    System.out.println("         Remover Produtos              ");
+                    System.out.println("=======================================");
+                    //removerProdutos
+                    break;
+
+                // buscarprod por nome
+                case 4:
+                    System.out.println("=======================================");
+                    System.out.println("        Pesquisar Produtos             ");
+                    System.out.println("=======================================");
+                    //pesquisarprodutos();
+
+                case 5:
+                    //submenu buscar entregador / exibir entregador, remover entregador
+
+                case 6:
+                    System.out.println("========================================");
+                    System.out.println("Obrigada pela preferência, até a próxima");
+                    System.out.println("              Equipe Imake              ");
+                    System.out.println("========================================");
+                    break;
+            }
+        } while (opLoja != 6);
+    }
+    public static void menuEntregador(Scanner sc, ServiceEntregador serviceEntregador) {
+        int opEntregador;
+        do {
+            System.out.println("=======================================");
+            System.out.println("                 Imake                 ");
+            System.out.println("     Seja Bem vindo a suas entregas    ");
+            System.out.println("=======================================");
+            System.out.println("[1]- Entrega");
+            System.out.println("[2]- Exibir entregas ");
+            System.out.println("[3]- Exibir comissões");
+            System.out.println("[4]- Alterar dados cadastrais");
+            System.out.println("[5]- Sair");
+
+            System.out.println("Escolha uma opção:  ");
+            opEntregador = sc.nextInt();
+
+            switch (opEntregador) {
+                case 1:
+                    System.out.println("=======================================");
+                    System.out.println("      Entrega/ concluir entrega        ");
+                    System.out.println("=======================================");
+
+                    //addproduto();
+                    break;
+                case 2:
+                    System.out.println("=======================================");
+                    System.out.println("           Suas Entregas               ");
+                    System.out.println("=======================================");
+                    //listarprodutos();
+                    break;
+                case 3:
+                    System.out.println("=======================================");
+                    System.out.println("           Suas comissões              ");
+                    System.out.println("=======================================");
+                    //chamar funç
+                    break;
+
+                // buscarprod por nome
+                case 4:
+                    System.out.println("=======================================");
+                    System.out.println("      Alterar dados Cadastrais         ");
+                    System.out.println("=======================================");
+                    //chamar func();
+
+                case 5:
+                    System.out.println("========================================");
+                    System.out.println("Obrigada pela preferência, até a próxima");
+                    System.out.println("              Equipe Imake              ");
+                    System.out.println("========================================");
+                    break;
+            }
+        } while (opEntregador != 5);
+    }
 
 }
 
