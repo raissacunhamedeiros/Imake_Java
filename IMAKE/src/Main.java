@@ -51,9 +51,9 @@ public class Main {
 
     public static void fluxoCliente(Scanner sc, ServiceCliente serviceCliente) {
         System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
-        String escolhaUsuario = sc.next();
+        String escolhaLoja = sc.next();
 
-        if (escolhaUsuario.equalsIgnoreCase("l")) {
+        if (escolhaLoja.equalsIgnoreCase("l")) {
             // Login do cliente
             System.out.println("Digite o seu email: ");
             String email = sc.next();
@@ -67,7 +67,7 @@ public class Main {
                 System.out.println("Email ou senha inválidos.");
             }
 
-        } else if (escolhaUsuario.equalsIgnoreCase("c")) {
+        } else if (escolhaLoja.equalsIgnoreCase("c")) {
             // Cadastro do cliente
             System.out.println("Digite seu nome: ");
             String nome = sc.next();
@@ -83,6 +83,26 @@ public class Main {
             menuCliente(sc, serviceCliente);
         } else {
             System.out.println("Opção inválida! Retornando ao menu inicial.");
+        }
+    }
+
+    public static void fluxoLoja(Scanner sc, ServiceLoja serviceLoja) {
+        System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
+        String escolhaLoja = sc.next();
+
+        if (escolhaLoja.equalsIgnoreCase("l")) {
+            System.out.println("Digite o seu email!: ");
+            String email = sc.next();
+            System.out.println("Digite a sua senha!: ");
+            String senha = sc.next();
+
+            boolean resultado = serviceLoja.verifcarInfo(email, senha);
+
+            if (resultado == true) {
+                System.out.println("login deu certo!");
+            } else {
+                System.out.println("login deu errado!");
+            }
         }
     }
 

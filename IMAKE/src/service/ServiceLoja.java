@@ -1,19 +1,38 @@
 package service;
+import com.sun.source.tree.BreakTree;
+import model.Entregador;
 import model.Loja;
 import java.util.ArrayList;
 
 public class ServiceLoja {
     private Loja loja;
+    private final ArrayList<Loja> lojas = new ArrayList<>();
 
     // Construtor
     public ServiceLoja(Loja loja) {
         this.loja = loja;
     }
+    public ServiceLoja() { }
 
     // Cadastrar uma loja
     public void cadastrarLoja(Loja novaLoja) {
         this.loja = novaLoja;
         System.out.println("Loja " + loja.getNome() + " cadastrada com sucesso!");
+    }
+
+    //verificar infos
+    public boolean verifcarInfo(String email, String senha) {
+        for (Loja loja : lojas) {
+            if (loja.getEmail().equals(email) && loja.getSenha().equals(senha)) {
+                return true;
+            }
+        } return false;
+    }
+
+    //adicionar lista
+    public void cadastrarLoja1(Loja loja){
+        lojas.add(loja);
+        System.out.println("Loja cadastrado com sucesso!");
     }
 
     // Atualizar informações da loja
