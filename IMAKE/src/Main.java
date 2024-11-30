@@ -16,7 +16,6 @@ public class Main {
 
         ServiceCliente serviceClienteTeste = new ServiceCliente();
 
-
         System.out.println("=======================================");
         System.out.println("                 Imake                 ");
         System.out.println("=======================================");
@@ -39,6 +38,7 @@ public class Main {
         if (tipoUsuario == 1) {
             fluxoCliente(sc, serviceClienteTeste);
         } else if (tipoUsuario == 2) {
+            fluxoLoja(sc, new ServiceLoja());
             System.out.println("Fluxo de loja em construção...");
         } else if (tipoUsuario == 3) {
             System.out.println("Fluxo de entregador em construção...");
@@ -76,17 +76,25 @@ public class Main {
             System.out.println("Digite uma senha: ");
             String senha = sc.next();
 
-            Cliente novoCliente = new Cliente(nome, email, senha);
-            serviceCliente.cadastrarCliente(novoCliente);
+            //Cliente novoCliente = new Cliente(nome, email, senha);
+            //serviceCliente.cadastrarCliente(novoCliente);
 
-            System.out.println("Cadastro realizado com sucesso!");
-            menuCliente(sc, serviceCliente);
+            //System.out.println("Cadastro realizado com sucesso!");
+            //menuCliente(sc, serviceCliente);
         } else {
             System.out.println("Opção inválida! Retornando ao menu inicial.");
         }
     }
 
     public static void fluxoLoja(Scanner sc, ServiceLoja serviceLoja) {
+        ServiceLoja service = new ServiceLoja();
+
+        Loja loja1 = new Loja(1, "001.002.003/0001-04", "MakeDelas", "23123", "a", "algum lugar", "123");
+        Loja loja2 = new Loja(2, "001.002.003/0001-024", "MakeDelas2", "231232", "a", "algum lugar2", "123");
+
+        service.cadastrarLoja(loja1);
+        service.cadastrarLoja(loja2);
+
         System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
         String escolhaLoja = sc.next();
 
@@ -96,13 +104,13 @@ public class Main {
             System.out.println("Digite a sua senha!: ");
             String senha = sc.next();
 
-            boolean resultado = serviceLoja.verifcarInfo(email, senha);
-
-            if (resultado == true) {
+            //validacao não funcional
                 System.out.println("login deu certo!");
-            } else {
-                System.out.println("login deu errado!");
-            }
+                System.out.println("Lista de produtos na loja: ");
+                service.exibirProdutos();
+
+        } else {
+            System.out.println("Cadastro de lojas não implementado!");
         }
     }
 
@@ -335,6 +343,7 @@ public class Main {
         } while (opEntregador != 5);
     }
 
+    //tela loja
 }
 
 

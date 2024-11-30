@@ -2,6 +2,8 @@ package service;
 import com.sun.source.tree.BreakTree;
 import model.Entregador;
 import model.Loja;
+import model.Produto;
+
 import java.util.ArrayList;
 
 public class ServiceLoja {
@@ -12,12 +14,21 @@ public class ServiceLoja {
     public ServiceLoja(Loja loja) {
         this.loja = loja;
     }
+
     public ServiceLoja() { }
 
     // Cadastrar uma loja
     public void cadastrarLoja(Loja novaLoja) {
         this.loja = novaLoja;
         System.out.println("Loja " + loja.getNome() + " cadastrada com sucesso!");
+    }
+
+    //exibir
+    public void exibirProdutos() {
+        System.out.println("algo");
+        for (Produto produto : loja.getEstoque()) {
+            System.out.println(produto);
+        }
     }
 
     //verificar infos
@@ -29,12 +40,6 @@ public class ServiceLoja {
         } return false;
     }
 
-    //adicionar lista
-    public void cadastrarLoja1(Loja loja){
-        lojas.add(loja);
-        System.out.println("Loja cadastrado com sucesso!");
-    }
-
     // Atualizar informações da loja
     public void atualizarLoja(String novoNome, String novoEndereco, String novoTelefone, String novoEmail) {
         loja.setNome(novoNome);
@@ -44,7 +49,7 @@ public class ServiceLoja {
         System.out.println("Loja " + loja.getNome() + " atualizada com sucesso!");
     }
 
-        // Buscar loja pelo nome
+    // Buscar loja pelo nome
     public Loja buscarLojaPorNome(String nome) {
         if (loja.getNome().equalsIgnoreCase(nome)) {
             return loja;
