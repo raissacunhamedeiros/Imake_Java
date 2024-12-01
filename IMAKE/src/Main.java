@@ -88,56 +88,82 @@ public class Main {
                         break;
 
                     case 2:
-                        System.out.println("=======================================");
-                        System.out.println("         Bem vindo ao carrinho         ");
-                        System.out.println("=======================================");
-                        System.out.println("[1] - Ver carrinho ");
-                        System.out.println("[2] - Add produto ao carrinho");
-                        System.out.println("[3] - Remover produto");
-                        System.out.println("[4] - Limpar carrinho");
-                        System.out.println("[5] - Voltar para o menu");
-                        System.out.println("Escolha uma opção: ");
-                        int opcao = sc.nextInt();
+                        Cliente cliente = new Cliente("Helena", "12345678900", "83911112222", "helena1@gmail.com", "Rua presidente, 10, jardins", "senha9898");
+                        Carrinho carrinho = cliente.getCarrinho();
+                        int opCarrinho;
+                        do {
+                            System.out.println("=======================================");
+                            System.out.println("         Bem vindo ao carrinho         ");
+                            System.out.println("=======================================");
+                            System.out.println("[1] - Ver carrinho ");
+                            System.out.println("[2] - Add produto ao carrinho");
+                            System.out.println("[3] - Remover produto");
+                            System.out.println("[4] - Limpar carrinho");
+                            System.out.println("[5] - Voltar para o menu");
+                            System.out.println("Escolha uma opção: ");
+                            opCarrinho = sc.nextInt();
 
-                        switch (opcao) {
-                            case 1:
+                            switch(opCarrinho){
+                                case 1:
+                                    System.out.println("=======================================");
+                                    System.out.println("           Itens no carrinho           ");
+                                    System.out.println("=======================================");
+                                    carrinho.exibirCarrinho();
+                                    break;
 
-                                break;
+                                case 2:
+                                    System.out.println("=======================================");
+                                    System.out.println("      Adicionar produto ao carrinho    ");
+                                    System.out.println("=======================================");
+                                    System.out.print("Digite o nome do produto: ");
+                                    sc.nextLine();
+                                    String nomeProduto = sc.nextLine();
+                                    System.out.print("Digite a quantidade: ");
+                                    int quantidadeProduto = sc.nextInt();
 
-                            case 2:
+                                    Produto produtoParaAdicionar = loja1.buscarProdutoPorNome(nomeProduto);
+                                    if (produtoParaAdicionar != null) {
+                                        carrinho.adicionarProduto(produtoParaAdicionar, quantidadeProduto);
+                                        System.out.println("Produto adicionado ao carrinho com sucesso!");
+                                    } else {
+                                        System.out.println("Produto não encontrado na loja.");
+                                    }
+                                    break;
 
-                                break;
+                                case 3:
+                                    System.out.println("=======================================");
+                                    System.out.println("      Remover produto do carrinho      ");
+                                    System.out.println("=======================================");
+                                    System.out.print("Digite o nome do produto a ser removido: ");
+                                    sc.nextLine();
+                                    String nomeProdutoRemover = sc.nextLine();
 
-                            case 3:
-                                // Limpar carrinho
-                                break;
+                                    Produto produtoParaRemover = loja1.buscarProdutoPorNome(nomeProdutoRemover);
+                                    if (produtoParaRemover != null) {
+                                        carrinho.removerProduto(produtoParaRemover);
+                                        System.out.println("Produto removido do carrinho com sucesso!");
+                                    } else {
+                                        System.out.println("Produto não encontrado no carrinho.");
+                                    }
+                                    break;
+                                case 4:
+                                    System.out.println("=======================================");
+                                    System.out.println("           Limpar o carrinho           ");
+                                    System.out.println("=======================================");
+                                    carrinho.limparCarrinho();
+                                    System.out.println("Carrinho limpo com sucesso!");
+                                    break;
+                                case 5:
+                                    System.out.println("Voltando ao menu principal");
+                                    break;
+                                default:
+                                    System.out.println("Opção inválida! Tente novamente.");
+                            }
 
-                            case 4:
-                                // Voltar
-                                break;
-
-                            case 5:
-                                //criar
-                                break;
-
-                            default:
-                                System.out.println("Opção inválida! Retornando ao menu.");
-                        }
+                        } while (opCarrinho != 5);
                         break;
-                    case 3:
-                        System.out.println("=======================================");
-                        System.out.println("          Realizar compra              ");
-                        System.out.println("=======================================");
-                        //realizarCompra();
-                        break;
 
-                    // Metodo de vendas
-                    case 4:
-                        System.out.println("========================================");
-                        System.out.println("Obrigada pela preferência, até a próxima");
-                        System.out.println("              Equipe Imake              ");
-                        System.out.println("========================================");
-                        break;
+
                 }
             }while (opCliente != 4);
         }
@@ -168,7 +194,7 @@ public class Main {
                         break;
                     case 2:
                         System.out.println("=======================================");
-                        System.out.println("            Produtos Loja              ");
+                        System.out.println("            Produtos da Loja           ");
                         System.out.println("=======================================");
                         sp1.listarProdutos();
                         break;

@@ -25,7 +25,6 @@ public class ServiceLoja {
 
     //exibir
     public void exibirProdutos() {
-        System.out.println("algo");
         for (Produto produto : loja.getEstoque()) {
             System.out.println(produto);
         }

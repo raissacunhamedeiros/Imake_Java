@@ -6,7 +6,6 @@ public class Produto {
     private double preco;
 
     //Construtor
-
     public Produto(String nome, int estoque, double preco, String IDProduto) {
         this.nome = nome;
         this.estoque = estoque;
@@ -19,7 +18,6 @@ public class Produto {
     }
 
     //Get e set
-
     public String getIDProduto() {
         return IDProduto;
     }

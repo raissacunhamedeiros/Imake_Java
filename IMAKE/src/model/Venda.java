@@ -12,7 +12,6 @@ public class Venda {
     private String FormaPagamento;
 
     //Construtores:
-
     public Venda(Pessoa pessoa, Loja loja, Carrinho carrinho) {
         this.pessoa = pessoa;
         this.loja = loja;
