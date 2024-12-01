@@ -1,10 +1,6 @@
-import model.Cliente;
-import model.Loja;
-import model.Produto;
-import service.ServiceCliente;
-import service.ServiceEntregador;
-import service.ServiceLoja;
-import service.ServiceProduto;
+import model.*;
+import service.*;
+
 import java.util.Scanner;
 
 public class Main {
@@ -12,10 +8,12 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         ServiceCliente servicecliente = new ServiceCliente();
         ServiceLoja serviceLoja = new ServiceLoja();
+        ServiceCarrinho serviceCarrinho= new ServiceCarrinho();
+        ServiceCliente serviceClienteTeste = new ServiceCliente();
+        ServiceEntregador serviceEntregador= new ServiceEntregador();
+        Entregador entregador = new Entregador("João","01012345699","83998920047","joao@email.com","r. dos milagres - n45", "2587");
 
         Loja loja1 = new Loja(01, "001.002.003/0001-04", "DivasMake", "83996206872", "loja01@email.com", "rua desespero, n82", "senha123");
-        Loja loja2 = new Loja(02, "001.002.003/0001-05", "MakeDelas", "83996206870", "loja02@email.com", "rua da amargura, n85", "senha124");
-
 
         Produto p1 = new Produto("batom vermelho", 26, 25.65, "001");
         Produto p2 = new Produto("Perfume - 1milion", 5, 980.00, "002");
@@ -30,23 +28,23 @@ public class Main {
 
 
         ServiceProduto sp1 = new ServiceProduto(loja1);
-        ServiceProduto sp2 = new ServiceProduto(loja2);
+
 
         sp1.cadastrarProduto(p5);
-        sp2.cadastrarProduto(p2);
         sp1.cadastrarProduto(p10);
-        sp2.cadastrarProduto(p7);
+
 
         serviceLoja.cadastrarLoja(loja1);
-        serviceLoja.cadastrarLoja(loja2);
+
 
         int opCliente;
         int opEntregador;
         int opLoja;
         int clienteCarrinho;
         String escolherLoja;
+        String removeprod;
 
-        ServiceCliente serviceClienteTeste = new ServiceCliente();
+
 
         System.out.println("=======================================");
         System.out.println("                 Imake                 ");
@@ -85,21 +83,10 @@ public class Main {
                         System.out.println("=======================================");
                         System.out.println("             Lojas Imake:              ");
                         System.out.println("=======================================");
-                        System.out.println("[D] Divas Make");
-                        System.out.println("[M] Make Delas");
-                        escolherLoja = sc.nextLine();
+                        System.out.println("Bem vindo a Divas makes!");
+                        serviceLoja.exibirProdutos();
+                        break;
 
-
-                        if (escolherLoja.equalsIgnoreCase("d")) {
-                            System.out.println("Bem vindo a Divas makes!");
-                            serviceLoja.exibirProdutos();
-
-                        } else if (escolherLoja.equalsIgnoreCase("m")) {
-                            System.out.println("bem vindo a Make Delas");
-                            serviceLoja.exibirProdutos();
-
-                            break;
-                        }
                     case 2:
                         System.out.println("=======================================");
                         System.out.println("         Bem vindo ao carrinho         ");
@@ -114,11 +101,11 @@ public class Main {
 
                         switch (opcao) {
                             case 1:
-                                // Exibir carrinho
+
                                 break;
 
                             case 2:
-                                // Remover produto
+
                                 break;
 
                             case 3:
@@ -164,9 +151,8 @@ public class Main {
                 System.out.println("[1]- Adicionar Produto ");
                 System.out.println("[2]- Listar produtos ");
                 System.out.println("[3]- Remover Produtos");
-                System.out.println("[4]-Buscar Produtos por nome");
-                System.out.println("[5]-Entrega");
-                System.out.println("[6]-Sair");
+                System.out.println("[4]- Atualizar Produtos");
+                System.out.println("[5]- Sair");
 
                 System.out.println("Escolha uma opção:  ");
                 opLoja = sc.nextInt();
@@ -176,29 +162,28 @@ public class Main {
                         System.out.println("=======================================");
                         System.out.println("         Adicionar Produtos            ");
                         System.out.println("=======================================");
-
-
-                        //addproduto();
+                        sp1.cadastrarProduto(p1);
+                        sp1.cadastrarProduto(p8);
+                        sp1.cadastrarProduto(p6);
                         break;
                     case 2:
                         System.out.println("=======================================");
-                        System.out.println("           Seus Produtos               ");
+                        System.out.println("            Produtos Loja              ");
                         System.out.println("=======================================");
-                        //listarprodutos();
+                        sp1.listarProdutos();
                         break;
                     case 3:
                         System.out.println("=======================================");
                         System.out.println("         Remover Produtos              ");
                         System.out.println("=======================================");
-                        //removerProdutos
+                        sp1.removerProduto("batom rosa");
                         break;
-
-                    // buscarprod por nome
                     case 4:
                         System.out.println("=======================================");
-                        System.out.println("        Pesquisar Produtos             ");
+                        System.out.println("        Atualizar Produtos             ");
                         System.out.println("=======================================");
-                        //pesquisarprodutos();
+                        sp1.atualizarProduto("batom vermelho","batom vinho");
+
 
                     case 5:
                         System.out.println("========================================");
@@ -229,7 +214,7 @@ public class Main {
                             System.out.println("=======================================");
                             System.out.println("           Suas Entregas               ");
                             System.out.println("=======================================");
-                            //listarprodutos();
+                            
                             break;
                         case 2:
                             System.out.println("=======================================");
