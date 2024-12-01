@@ -87,34 +87,19 @@ public class Main {
                         System.out.println("=======================================");
                         System.out.println("[D] Divas Make");
                         System.out.println("[M] Make Delas");
-                        escolherLoja=sc.nextLine();
+                        escolherLoja = sc.nextLine();
 
-<<<<<<< HEAD
-                        if(escolherLoja.equalsIgnoreCase("d")){
+
+                        if (escolherLoja.equalsIgnoreCase("d")) {
                             System.out.println("Bem vindo a Divas makes!");
                             serviceLoja.exibirProdutos();
 
                         } else if (escolherLoja.equalsIgnoreCase("m")) {
                             System.out.println("bem vindo a Make Delas");
                             serviceLoja.exibirProdutos();
-=======
-    public static void fluxoCliente(Scanner sc, ServiceCliente serviceCliente) {
-        System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
-        String login_cadastro = sc.next();
 
-        if (login_cadastro.equalsIgnoreCase("l")) {
-            // Login do cliente
-            System.out.println("Digite o seu email: ");
-            String email = sc.next();
-            System.out.println("Digite a sua senha: ");
-            String senha = sc.next();
->>>>>>> 34b0c858da9bdf5dae9fd4449b9b5279e3b19bb8
-
+                            break;
                         }
-
-<<<<<<< HEAD
-                        break;
-                    //Método para chamar as lojas (listar.loja?)
                     case 2:
                         System.out.println("=======================================");
                         System.out.println("         Bem vindo ao carrinho         ");
@@ -125,16 +110,6 @@ public class Main {
                         System.out.println("[4] - Voltar para o menu");
                         System.out.println("Escolha uma opção: ");
                         int opcao = sc.nextInt();
-=======
-        } else if (login_cadastro.equalsIgnoreCase("c")) {
-            // Cadastro do cliente
-            System.out.println("Digite seu nome: ");
-            String nome = sc.next();
-            System.out.println("Digite seu email: ");
-            String email = sc.next();
-            System.out.println("Digite uma senha: ");
-            String senha = sc.next();
->>>>>>> 34b0c858da9bdf5dae9fd4449b9b5279e3b19bb8
 
                         switch (opcao) {
                             case 1:
@@ -149,7 +124,6 @@ public class Main {
                                 // Limpar carrinho
                                 break;
 
-<<<<<<< HEAD
                             case 4:
                                 // Voltar
                                 break;
@@ -172,71 +146,10 @@ public class Main {
                         System.out.println("              Equipe Imake              ");
                         System.out.println("========================================");
                         break;
-=======
-        Loja loja1 = new Loja(1, "001.002.003/0001-04", "MakeDelas", "23123", "a", "algum lugar", "123");
-
-        service.cadastrarLoja(loja1);
-
-        System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
-        String escolhaLoja = sc.next();
-
-        if (escolhaLoja.equalsIgnoreCase("l")) {
-            System.out.println("Digite o seu email!: ");
-            String email = sc.next();
-            System.out.println("Digite a sua senha!: ");
-            String senha = sc.next();
-
-            //validacao não funcional
-
-            Produto p1 = new Produto("batom vermelho", 26, 25.65, "001");
-            Produto p2 = new Produto("Perfume - 1milion", 5, 980.00, "002");
-            Produto p3 = new Produto("pó- bege claro", 25, 29.90, "003");
-            Produto p4 = new Produto("pó- bege medio", 25, 29.90, "004");
-            Produto p5 = new Produto("pó- morena", 25, 29.90, "005");
-            Produto p6 = new Produto("base- bege claro", 25, 49.90, "006");
-            Produto p7 = new Produto("base- bege médio", 25, 49.90, "007");
-            Produto p8 = new Produto("base- morena", 25, 49.90, "008");
-            Produto p9 = new Produto("batom nude", 26, 25.65, "009");
-            Produto p10 = new Produto("batom rosa", 26, 25.65, "010");
-
-                loja1.adicionarProduto(p1);
-                loja1.adicionarProduto(p2);
-                loja1.adicionarProduto(p3);
-                loja1.adicionarProduto(p4);
-                loja1.adicionarProduto(p5);
-                loja1.adicionarProduto(p6);
-                loja1.adicionarProduto(p7);
-                loja1.adicionarProduto(p8);
-                loja1.adicionarProduto(p9);
-                loja1.adicionarProduto(p10);
-
-                System.out.println("login deu certo!");
-                System.out.println("Lista de produtos na loja: ");
-                service.exibirProdutos();
-        } else {
-            System.out.println("Cadastro de lojas não implementado!");
-        }
-    }
-
-        /*if (tipo_usuario == 1) {
-            System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
-            String escolhaUsuario = sc.next();
-            if (escolhaUsuario.equalsIgnoreCase("l")) {
-                System.out.println("Digite o seu email!: ");
-                String email = sc.next();
-                System.out.println("Digite a sua senha!: ");
-                String senha = sc.next();
-
-                boolean resultado = serviceClienteTeste.verificarInfos(email, senha);
-                if (resultado == true) {
-                    System.out.println("login deu certo!");
-                    //menuCliente()
-                } else {
-                    System.out.println("login deu errado!");
->>>>>>> 34b0c858da9bdf5dae9fd4449b9b5279e3b19bb8
                 }
-            } while (opCliente != 4);
+            }while (opCliente != 6);
         }
+
         if (tipoUsuario == 2) {
             do {
                 System.out.println("=======================================");
@@ -293,6 +206,7 @@ public class Main {
                         break;
                 }
             } while (opLoja != 6);
+        }
 
             if (tipoUsuario == 3) {
                 do {
@@ -330,7 +244,7 @@ public class Main {
                             //chamar funç
                             break;
 
-                        // buscarprod por nome
+                            // buscarprod por nome
                         case 4:
                             System.out.println("=======================================");
                             System.out.println("      Alterar dados Cadastrais         ");
@@ -346,12 +260,27 @@ public class Main {
                     }
                 } while (opEntregador != 5);
             }
-        }
     }
 }
 
 
 
+
+
+              /*  loja1.adicionarProduto(p1);
+                loja1.adicionarProduto(p2);
+                loja1.adicionarProduto(p3);
+                loja1.adicionarProduto(p4);
+                loja1.adicionarProduto(p5);
+                loja1.adicionarProduto(p6);
+                loja1.adicionarProduto(p7);
+                loja1.adicionarProduto(p8);
+                loja1.adicionarProduto(p9);
+                loja1.adicionarProduto(p10);
+
+                System.out.println("login deu certo!");
+                System.out.println("Lista de produtos na loja: ");
+                service.exibirProdutos();*/
 
 
 
