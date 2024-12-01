@@ -9,7 +9,6 @@ public class Main {
         ServiceCliente servicecliente = new ServiceCliente();
         ServiceLoja serviceLoja = new ServiceLoja();
         ServiceCarrinho serviceCarrinho= new ServiceCarrinho();
-        ServiceCliente serviceClienteTeste = new ServiceCliente();
         ServiceEntregador serviceEntregador= new ServiceEntregador();
         Entregador entregador = new Entregador("João","01012345699","83998920047","joao@email.com","r. dos milagres - n45", "2587");
 
@@ -41,8 +40,6 @@ public class Main {
         int opEntregador;
         int opLoja;
         int clienteCarrinho;
-        String escolherLoja;
-        String removeprod;
 
 
 
@@ -62,7 +59,6 @@ public class Main {
         System.out.println("│ [2] - Loja                          │");
         System.out.println("│ [3] - Entregador                    │");
         System.out.println("=======================================");
-        /*int tipo_usuario = sc.nextInt();*/
         int tipoUsuario = sc.nextInt();
 
         if (tipoUsuario == 1) {
@@ -201,10 +197,11 @@ public class Main {
                     System.out.println("                 Imake                 ");
                     System.out.println("     Seja Bem vindo a suas entregas    ");
                     System.out.println("=======================================");
-                    System.out.println("[1]- Exibir entregas ");
-                    System.out.println("[2]- Exibir comissões");
-                    System.out.println("[3]- Alterar dados cadastrais");
-                    System.out.println("[4]- Sair");
+                    System.out.println("[1]- Entrega finalizada");
+                    System.out.println("[2]- Exibir entregas ");
+                    System.out.println("[3]- Exibir comissões");
+                    System.out.println("[4]- Alterar dados cadastrais");
+                    System.out.println("[5]- Sair");
 
                     System.out.println("Escolha uma opção:  ");
                     opEntregador = sc.nextInt();
@@ -212,32 +209,37 @@ public class Main {
                     switch (opEntregador) {
                         case 1:
                             System.out.println("=======================================");
-                            System.out.println("           Suas Entregas               ");
+                            System.out.println("          Finalizar Entrega            ");
                             System.out.println("=======================================");
-                            
+                            entregador.concluirEntrega(115.25);
                             break;
                         case 2:
                             System.out.println("=======================================");
+                            System.out.println("           Suas Entregas               ");
+                            System.out.println("=======================================");
+                            entregador.exibirEntregas();
+                            break;
+                        case 3:
+                            System.out.println("=======================================");
                             System.out.println("           Suas comissões              ");
                             System.out.println("=======================================");
-                            //chamar funç
+                            entregador.exibirComissoes();
                             break;
-
-                            // buscarprod por nome
-                        case 3:
+                        case 4:
                             System.out.println("=======================================");
                             System.out.println("      Alterar dados Cadastrais         ");
                             System.out.println("=======================================");
-                            //chamar func();
+                            serviceEntregador.atualizarEntregador("João","01234567890","83987585856","joao@email.com","r. Esperança, n89","moto");
+                            break;
 
-                        case 4:
+                        case 5:
                             System.out.println("========================================");
                             System.out.println("Obrigada pela preferência, até a próxima");
                             System.out.println("              Equipe Imake              ");
                             System.out.println("========================================");
                             break;
                     }
-                } while (opEntregador != 4);
+                } while (opEntregador != 5);
             }
     }
 }
