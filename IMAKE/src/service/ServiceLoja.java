@@ -31,15 +31,6 @@ public class ServiceLoja {
         }
     }
 
-    //verificar infos
-    public boolean verifcarInfo(String email, String senha) {
-        for (Loja loja : lojas) {
-            if (loja.getEmail().equals(email) && loja.getSenha().equals(senha)) {
-                return true;
-            }
-        } return false;
-    }
-
     // Atualizar informações da loja
     public void atualizarLoja(String novoNome, String novoEndereco, String novoTelefone, String novoEmail) {
         loja.setNome(novoNome);
