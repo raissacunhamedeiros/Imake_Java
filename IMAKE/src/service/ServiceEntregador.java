@@ -1,5 +1,7 @@
 package service;
 import model.Entregador;
+import model.Loja;
+
 import java.util.ArrayList;
 
 public class ServiceEntregador {
@@ -55,4 +57,5 @@ public class ServiceEntregador {
         }
         System.out.println("CPF não encontrado.");
     }
+
 }
