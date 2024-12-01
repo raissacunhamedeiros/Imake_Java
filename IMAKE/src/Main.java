@@ -105,9 +105,10 @@ public class Main {
                         System.out.println("         Bem vindo ao carrinho         ");
                         System.out.println("=======================================");
                         System.out.println("[1] - Ver carrinho ");
-                        System.out.println("[2] - Remover produto");
-                        System.out.println("[3] - Limpar carrinho");
-                        System.out.println("[4] - Voltar para o menu");
+                        System.out.println("[2] - Add produto ao carrinho");
+                        System.out.println("[3] - Remover produto");
+                        System.out.println("[4] - Limpar carrinho");
+                        System.out.println("[5] - Voltar para o menu");
                         System.out.println("Escolha uma opção: ");
                         int opcao = sc.nextInt();
 
@@ -126,6 +127,10 @@ public class Main {
 
                             case 4:
                                 // Voltar
+                                break;
+
+                            case 5:
+                                //criar
                                 break;
 
                             default:
@@ -147,7 +152,7 @@ public class Main {
                         System.out.println("========================================");
                         break;
                 }
-            }while (opCliente != 6);
+            }while (opCliente != 4);
         }
 
         if (tipoUsuario == 2) {
@@ -196,16 +201,13 @@ public class Main {
                         //pesquisarprodutos();
 
                     case 5:
-                        //submenu buscar entregador / exibir entregador, remover entregador
-
-                    case 6:
                         System.out.println("========================================");
                         System.out.println("Obrigada pela preferência, até a próxima");
                         System.out.println("              Equipe Imake              ");
                         System.out.println("========================================");
                         break;
                 }
-            } while (opLoja != 6);
+            } while (opLoja != 5);
         }
 
             if (tipoUsuario == 3) {
@@ -214,11 +216,10 @@ public class Main {
                     System.out.println("                 Imake                 ");
                     System.out.println("     Seja Bem vindo a suas entregas    ");
                     System.out.println("=======================================");
-                    System.out.println("[1]- Entrega");
-                    System.out.println("[2]- Exibir entregas ");
-                    System.out.println("[3]- Exibir comissões");
-                    System.out.println("[4]- Alterar dados cadastrais");
-                    System.out.println("[5]- Sair");
+                    System.out.println("[1]- Exibir entregas ");
+                    System.out.println("[2]- Exibir comissões");
+                    System.out.println("[3]- Alterar dados cadastrais");
+                    System.out.println("[4]- Sair");
 
                     System.out.println("Escolha uma opção:  ");
                     opEntregador = sc.nextInt();
@@ -226,18 +227,11 @@ public class Main {
                     switch (opEntregador) {
                         case 1:
                             System.out.println("=======================================");
-                            System.out.println("      Entrega/ concluir entrega        ");
-                            System.out.println("=======================================");
-
-                            //addproduto();
-                            break;
-                        case 2:
-                            System.out.println("=======================================");
                             System.out.println("           Suas Entregas               ");
                             System.out.println("=======================================");
                             //listarprodutos();
                             break;
-                        case 3:
+                        case 2:
                             System.out.println("=======================================");
                             System.out.println("           Suas comissões              ");
                             System.out.println("=======================================");
@@ -245,20 +239,20 @@ public class Main {
                             break;
 
                             // buscarprod por nome
-                        case 4:
+                        case 3:
                             System.out.println("=======================================");
                             System.out.println("      Alterar dados Cadastrais         ");
                             System.out.println("=======================================");
                             //chamar func();
 
-                        case 5:
+                        case 4:
                             System.out.println("========================================");
                             System.out.println("Obrigada pela preferência, até a próxima");
                             System.out.println("              Equipe Imake              ");
                             System.out.println("========================================");
                             break;
                     }
-                } while (opEntregador != 5);
+                } while (opEntregador != 4);
             }
     }
 }
