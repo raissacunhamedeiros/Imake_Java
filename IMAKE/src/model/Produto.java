@@ -65,8 +65,6 @@ public class Produto {
                 '}';
     }
 }
-
-
 /*
 a classe Loja tem metodo de cadastrarProduto() que delega a logica para
 o ServiceProduto.
