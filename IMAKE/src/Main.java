@@ -51,9 +51,9 @@ public class Main {
 
     public static void fluxoCliente(Scanner sc, ServiceCliente serviceCliente) {
         System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
-        String escolhaLoja = sc.next();
+        String login_cadastro = sc.next();
 
-        if (escolhaLoja.equalsIgnoreCase("l")) {
+        if (login_cadastro.equalsIgnoreCase("l")) {
             // Login do cliente
             System.out.println("Digite o seu email: ");
             String email = sc.next();
@@ -67,7 +67,7 @@ public class Main {
                 System.out.println("Email ou senha inválidos.");
             }
 
-        } else if (escolhaLoja.equalsIgnoreCase("c")) {
+        } else if (login_cadastro.equalsIgnoreCase("c")) {
             // Cadastro do cliente
             System.out.println("Digite seu nome: ");
             String nome = sc.next();
@@ -90,10 +90,8 @@ public class Main {
         ServiceLoja service = new ServiceLoja();
 
         Loja loja1 = new Loja(1, "001.002.003/0001-04", "MakeDelas", "23123", "a", "algum lugar", "123");
-        Loja loja2 = new Loja(2, "001.002.003/0001-024", "MakeDelas2", "231232", "a", "algum lugar2", "123");
 
         service.cadastrarLoja(loja1);
-        service.cadastrarLoja(loja2);
 
         System.out.println("Se desejar realizar o login digite (L), se desejar se cadastrar digite (C)");
         String escolhaLoja = sc.next();
@@ -105,10 +103,32 @@ public class Main {
             String senha = sc.next();
 
             //validacao não funcional
+
+            Produto p1 = new Produto("batom vermelho", 26, 25.65, "001");
+            Produto p2 = new Produto("Perfume - 1milion", 5, 980.00, "002");
+            Produto p3 = new Produto("pó- bege claro", 25, 29.90, "003");
+            Produto p4 = new Produto("pó- bege medio", 25, 29.90, "004");
+            Produto p5 = new Produto("pó- morena", 25, 29.90, "005");
+            Produto p6 = new Produto("base- bege claro", 25, 49.90, "006");
+            Produto p7 = new Produto("base- bege médio", 25, 49.90, "007");
+            Produto p8 = new Produto("base- morena", 25, 49.90, "008");
+            Produto p9 = new Produto("batom nude", 26, 25.65, "009");
+            Produto p10 = new Produto("batom rosa", 26, 25.65, "010");
+
+                loja1.adicionarProduto(p1);
+                loja1.adicionarProduto(p2);
+                loja1.adicionarProduto(p3);
+                loja1.adicionarProduto(p4);
+                loja1.adicionarProduto(p5);
+                loja1.adicionarProduto(p6);
+                loja1.adicionarProduto(p7);
+                loja1.adicionarProduto(p8);
+                loja1.adicionarProduto(p9);
+                loja1.adicionarProduto(p10);
+
                 System.out.println("login deu certo!");
                 System.out.println("Lista de produtos na loja: ");
                 service.exibirProdutos();
-
         } else {
             System.out.println("Cadastro de lojas não implementado!");
         }
