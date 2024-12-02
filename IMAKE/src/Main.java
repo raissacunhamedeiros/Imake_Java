@@ -34,6 +34,9 @@ public class Main {
         sp1.cadastrarProduto(p10);
 
         serviceLoja.cadastrarLoja(loja1);
+        Cliente cliente = new Cliente("Helena", "12345678900", "83911112222", "helena1@gmail.com", "Rua presidente, 10, jardins", "senha9898");
+        Carrinho carrinho = cliente.getCarrinho();
+
 
         int opCliente;
         int opEntregador;
@@ -84,8 +87,6 @@ public class Main {
 
 
                     case 2:
-                        Cliente cliente = new Cliente("Helena", "12345678900", "83911112222", "helena1@gmail.com", "Rua presidente, 10, jardins", "senha9898");
-                        Carrinho carrinho = cliente.getCarrinho();
                         int opCarrinho;
                         do {
                             System.out.println("=======================================");
@@ -165,14 +166,45 @@ public class Main {
                         System.out.println("=======================================");
                         System.out.println("            Realizar venda             ");
                         System.out.println("=======================================");
-                        venda1.comprarProdutos();
+
+                        venda1.setPessoa(cliente);
+                        venda1.setLoja(loja1);
+                        venda1.setCarrinho(cliente.getCarrinho());
+
+                        // Realizar a compra
+                        if (venda1.comprarProdutos()) {
+                            // Perguntar forma de pagamento
+                            venda1.formaPagamento();
+
+                            // Exibir valor total final
+                            System.out.printf("Total da venda: R$ %.2f%n", venda1.getValorTotal());
+
+                            // Geração da nota fiscal (se aplicável)
+                            System.out.println("Gerando nota fiscal...");
+                             serviceVenda.gerarNotaFiscal(
+                                 cliente.getNome(),
+                                loja1.getNome(),
+                                venda1.getValorTotal(),
+                                venda1.getTaxas(),
+                                venda1.getJuros(),
+                            0);
+
+                            //     0 // Exemplo: desconto pode ser zero ou calculado
+                            // );
+
+                            System.out.println("Venda concluída com sucesso!");
+                        } else {
+                            System.out.println("A venda não foi concluída. Verifique os itens do carrinho ou o estoque.");
+                        }
+                        break;
+                        /*venda1.comprarProdutos();
                         serviceVenda.calcularTaxas();
                         serviceVenda.calcularImposto();
                         serviceVenda.calcularJuros();
                         serviceVenda.calcularDesconto();
                         venda1.formaPagamento();
                         serviceVenda.gerarNotaFiscal();
-                        break;
+                        break; */
 
                     case 4:
                         System.out.println("========================================");
@@ -216,7 +248,6 @@ public class Main {
                                 sp1.cadastrarProduto(p7);
                                 sp1.cadastrarProduto(p9);
                                 break;
-                            break;
                             case 2:
                                 System.out.println("=======================================");
                                 System.out.println("            Produtos da Loja           ");
@@ -298,7 +329,7 @@ public class Main {
                 }
             }
     }
-}
+
 
 
 

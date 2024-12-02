@@ -24,7 +24,7 @@ public class Venda {
     }
 
     public Venda(){
-
+        this.produtosVendidos = new ArrayList<>();
     }
 
     //Get e set:
@@ -102,6 +102,10 @@ public class Venda {
 
     //Metodos de venda:
     public boolean comprarProdutos() {
+        if (produtosVendidos == null) {
+            produtosVendidos = new ArrayList<>();
+        }
+
         if (carrinho.getItens().isEmpty()) {
             System.out.println("O carrinho está vazio. Adicione produtos antes de finalizar a compra.");
             return false;
