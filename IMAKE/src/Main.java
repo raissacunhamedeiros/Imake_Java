@@ -30,19 +30,17 @@ public class Main {
 
         ServiceProduto sp1 = new ServiceProduto(loja1);
 
-
         sp1.cadastrarProduto(p5);
         sp1.cadastrarProduto(p10);
 
-
         serviceLoja.cadastrarLoja(loja1);
-
 
         int opCliente;
         int opEntregador;
         int opLoja;
         int clienteCarrinho;
         int oppag;
+
 
 
         System.out.println("=======================================");
@@ -99,6 +97,7 @@ public class Main {
                             System.out.println("[3] - Remover produto");
                             System.out.println("[4] - Limpar carrinho");
                             System.out.println("[5] - Voltar para o menu");
+
                             System.out.println("Escolha uma opção: ");
                             opCarrinho = sc.nextInt();
 
@@ -162,30 +161,29 @@ public class Main {
                             while (opCarrinho != 5) ;
                             break;
                         }
-                    case 3:
-                        System.out.println("=======================================");
-                        System.out.println("            Realizar venda             ");
-                        System.out.println("=======================================");
-                        venda1.comprarProdutos();
-                        serviceVenda.calcularTaxas();
-                        serviceVenda.calcularImposto();
-                        serviceVenda.calcularJuros();
-                        serviceVenda.calcularDesconto();
-                        venda1.formaPagamento();
-                        serviceVenda.gerarNotaFiscal();
-                        break;
+
+                case 3:
+                    System.out.println("=======================================");
+                    System.out.println("            Realizar venda             ");
+                    System.out.println("=======================================");
+                    venda1.comprarProdutos();
+                    serviceVenda.calcularTaxas();
+                    serviceVenda.calcularImposto();
+                    serviceVenda.calcularJuros();
+                    serviceVenda.calcularDesconto();
+                    venda1.formaPagamento();
+                    serviceVenda.gerarNotaFiscal();
+                    break;
+
+                case 4:
+                    break;
+
 
                     case 4:
                         break;
 
-
-
-
-
-
-                } while (opCliente != 4) ;
-            }
-        }
+                }
+            } while (opCliente != 4);
 
 
             if (tipoUsuario == 2) {
@@ -211,6 +209,12 @@ public class Main {
                             sp1.cadastrarProduto(p1);
                             sp1.cadastrarProduto(p8);
                             sp1.cadastrarProduto(p6);
+                            sp1.cadastrarProduto(p2);
+                            sp1.cadastrarProduto(p3);
+                            sp1.cadastrarProduto(p4);
+                            sp1.cadastrarProduto(p7);
+                            sp1.cadastrarProduto(p9);
+                            break;
                             break;
                         case 2:
                             System.out.println("=======================================");
