@@ -1,25 +1,30 @@
 package service;
 
-public class ServiceVenda {
+public class ServiceVenda implements ServiceVendaInterface{
 
     // Cálculo de impostos e taxas
+    @Override
     public double calcularImposto(double valorTotal, double taxaImposto) {
         return valorTotal * (taxaImposto / 100.0);
     }
 
+    @Override
     public double calcularTaxas(double valorTotal, double taxaPercentual) {
         return valorTotal * (taxaPercentual / 100.0);
     }
 
+    @Override
     public double calcularJuros(double valorTotal, double jurosPercentual) {
         return valorTotal * (jurosPercentual / 100.0);
     }
 
+    @Override
     public double calcularDesconto(double valorTotal, double descontoPercentual) {
         return valorTotal * (descontoPercentual / 100.0);
     }
 
     // Geração de nota fiscal simplificada
+    @Override
     public void gerarNotaFiscal(String cliente, String loja, double valorTotal, double taxas, double juros, double desconto) {
         System.out.println("===== NOTA FISCAL =====");
         System.out.println("Cliente: " + cliente);

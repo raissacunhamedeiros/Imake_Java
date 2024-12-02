@@ -151,10 +151,8 @@ public class Main {
                                 default:
                                     System.out.println("Opção inválida! Tente novamente.");
                             }
-
                         } while (opCarrinho != 5);
                         break;
-
                     case 3:
                         break;
                     case 4:
