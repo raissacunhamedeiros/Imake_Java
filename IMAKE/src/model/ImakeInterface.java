@@ -6,4 +6,5 @@ import java.util.Scanner;
 
 public interface ImakeInterface {
 
+
 }
