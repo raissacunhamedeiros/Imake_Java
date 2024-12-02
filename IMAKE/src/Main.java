@@ -155,6 +155,7 @@ public class Main {
                                 default:
                                     System.out.println("Opção inválida! Tente novamente.");
                             }
+                            case 
 
                         } while (opCarrinho != 5);
                         break;
@@ -187,6 +188,13 @@ public class Main {
                         sp1.cadastrarProduto(p1);
                         sp1.cadastrarProduto(p8);
                         sp1.cadastrarProduto(p6);
+                        sp1.cadastrarProduto(p2);
+                        sp1.cadastrarProduto(p3);
+                        sp1.cadastrarProduto(p4);
+                        sp1.cadastrarProduto(p6);
+                        sp1.cadastrarProduto(p7);
+                        sp1.cadastrarProduto(p8);
+                        sp1.cadastrarProduto(p9);
                         break;
                     case 2:
                         System.out.println("=======================================");
