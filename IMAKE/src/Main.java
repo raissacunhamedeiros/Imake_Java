@@ -12,7 +12,7 @@ public class Main {
         ServiceEntregador serviceEntregador = new ServiceEntregador();
         Entregador entregador = new Entregador("João", "01012345699", "83998920047", "joao@email.com", "r. dos milagres - n45", "2587");
         Venda venda1 = new Venda();
-        ServiceVenda serviceVenda= new ServiceVenda();
+        ServiceVenda serviceVenda = new ServiceVenda();
 
         Loja loja1 = new Loja(01, "001.002.003/0001-04", "DivasMake", "83996206872", "loja01@email.com", "rua desespero, n82", "senha123");
 
@@ -40,7 +40,6 @@ public class Main {
         int opLoja;
         int clienteCarrinho;
         int oppag;
-
 
 
         System.out.println("=======================================");
@@ -158,145 +157,147 @@ public class Main {
                                     System.out.println("Opção inválida! Tente novamente.");
 
                             }
-                            while (opCarrinho != 5) ;
+                        } while (opCarrinho != 5) ;
                             break;
-                        }
-
-                case 3:
-                    System.out.println("=======================================");
-                    System.out.println("            Realizar venda             ");
-                    System.out.println("=======================================");
-                    venda1.comprarProdutos();
-                    serviceVenda.calcularTaxas();
-                    serviceVenda.calcularImposto();
-                    serviceVenda.calcularJuros();
-                    serviceVenda.calcularDesconto();
-                    venda1.formaPagamento();
-                    serviceVenda.gerarNotaFiscal();
-                    break;
-
-                case 4:
-                    break;
 
 
-                    case 4:
+                    case 3:
+                        System.out.println("=======================================");
+                        System.out.println("            Realizar venda             ");
+                        System.out.println("=======================================");
+                        venda1.comprarProdutos();
+                        serviceVenda.calcularTaxas();
+                        serviceVenda.calcularImposto();
+                        serviceVenda.calcularJuros();
+                        serviceVenda.calcularDesconto();
+                        venda1.formaPagamento();
+                        serviceVenda.gerarNotaFiscal();
                         break;
 
+                    case 4:
+                        System.out.println("========================================");
+                        System.out.println("Obrigada pela preferência, até a próxima");
+                        System.out.println("              Equipe Imake              ");
+                        System.out.println("========================================");
+                        break;
+
+
                 }
-            } while (opCliente != 4);
+            }while (opCliente != 4) ;
+        }
 
 
-            if (tipoUsuario == 2) {
-                do {
-                    System.out.println("=======================================");
-                    System.out.println("                 Imake                 ");
-                    System.out.println("   Seja Bem vindo a sua loja virtual!  ");
-                    System.out.println("=======================================");
-                    System.out.println("[1]- Adicionar Produto ");
-                    System.out.println("[2]- Listar produtos ");
-                    System.out.println("[3]- Remover Produtos");
-                    System.out.println("[4]- Atualizar Produtos");
-                    System.out.println("[5]- Sair");
+                if (tipoUsuario == 2) {
+                    do {
+                        System.out.println("=======================================");
+                        System.out.println("                 Imake                 ");
+                        System.out.println("   Seja Bem vindo a sua loja virtual!  ");
+                        System.out.println("=======================================");
+                        System.out.println("[1]- Adicionar Produto ");
+                        System.out.println("[2]- Listar produtos ");
+                        System.out.println("[3]- Remover Produtos");
+                        System.out.println("[4]- Atualizar Produtos");
+                        System.out.println("[5]- Sair");
 
-                    System.out.println("Escolha uma opção:  ");
-                    opLoja = sc.nextInt();
+                        System.out.println("Escolha uma opção:  ");
+                        opLoja = sc.nextInt();
 
-                    switch (opLoja) {
-                        case 1:
-                            System.out.println("=======================================");
-                            System.out.println("         Adicionar Produtos            ");
-                            System.out.println("=======================================");
-                            sp1.cadastrarProduto(p1);
-                            sp1.cadastrarProduto(p8);
-                            sp1.cadastrarProduto(p6);
-                            sp1.cadastrarProduto(p2);
-                            sp1.cadastrarProduto(p3);
-                            sp1.cadastrarProduto(p4);
-                            sp1.cadastrarProduto(p7);
-                            sp1.cadastrarProduto(p9);
+                        switch (opLoja) {
+                            case 1:
+                                System.out.println("=======================================");
+                                System.out.println("         Adicionar Produtos            ");
+                                System.out.println("=======================================");
+                                sp1.cadastrarProduto(p1);
+                                sp1.cadastrarProduto(p8);
+                                sp1.cadastrarProduto(p6);
+                                sp1.cadastrarProduto(p2);
+                                sp1.cadastrarProduto(p3);
+                                sp1.cadastrarProduto(p4);
+                                sp1.cadastrarProduto(p7);
+                                sp1.cadastrarProduto(p9);
+                                break;
                             break;
-                            break;
-                        case 2:
-                            System.out.println("=======================================");
-                            System.out.println("            Produtos da Loja           ");
-                            System.out.println("=======================================");
-                            sp1.listarProdutos();
-                            break;
-                        case 3:
-                            System.out.println("=======================================");
-                            System.out.println("         Remover Produtos              ");
-                            System.out.println("=======================================");
-                            sp1.removerProduto("batom rosa");
-                            break;
-                        case 4:
-                            System.out.println("=======================================");
-                            System.out.println("        Atualizar Produtos             ");
-                            System.out.println("=======================================");
-                            sp1.atualizarProduto("batom vermelho", "batom vinho");
+                            case 2:
+                                System.out.println("=======================================");
+                                System.out.println("            Produtos da Loja           ");
+                                System.out.println("=======================================");
+                                sp1.listarProdutos();
+                                break;
+                            case 3:
+                                System.out.println("=======================================");
+                                System.out.println("         Remover Produtos              ");
+                                System.out.println("=======================================");
+                                sp1.removerProduto("batom rosa");
+                                break;
+                            case 4:
+                                System.out.println("=======================================");
+                                System.out.println("        Atualizar Produtos             ");
+                                System.out.println("=======================================");
+                                sp1.atualizarProduto("batom vermelho", "batom vinho");
 
 
-                        case 5:
-                            System.out.println("========================================");
-                            System.out.println("Obrigada pela preferência, até a próxima");
-                            System.out.println("              Equipe Imake              ");
-                            System.out.println("========================================");
-                            break;
-                    }
-                } while (opLoja != 5);
-            }
+                            case 5:
+                                System.out.println("========================================");
+                                System.out.println("Obrigada pela preferência, até a próxima");
+                                System.out.println("              Equipe Imake              ");
+                                System.out.println("========================================");
+                                break;
+                        }
+                    } while (opLoja != 5);
+                }
 
-            if (tipoUsuario == 3) {
-                do {
-                    System.out.println("=======================================");
-                    System.out.println("                 Imake                 ");
-                    System.out.println("     Seja Bem vindo a suas entregas    ");
-                    System.out.println("=======================================");
-                    System.out.println("[1]- Entrega finalizada");
-                    System.out.println("[2]- Exibir entregas ");
-                    System.out.println("[3]- Exibir comissões");
-                    System.out.println("[4]- Alterar dados cadastrais");
-                    System.out.println("[5]- Sair");
+                if (tipoUsuario == 3) {
+                    do {
+                        System.out.println("=======================================");
+                        System.out.println("                 Imake                 ");
+                        System.out.println("     Seja Bem vindo a suas entregas    ");
+                        System.out.println("=======================================");
+                        System.out.println("[1]- Entrega finalizada");
+                        System.out.println("[2]- Exibir entregas ");
+                        System.out.println("[3]- Exibir comissões");
+                        System.out.println("[4]- Alterar dados cadastrais");
+                        System.out.println("[5]- Sair");
 
-                    System.out.println("Escolha uma opção:  ");
-                    opEntregador = sc.nextInt();
+                        System.out.println("Escolha uma opção:  ");
+                        opEntregador = sc.nextInt();
 
-                    switch (opEntregador) {
-                        case 1:
-                            System.out.println("=======================================");
-                            System.out.println("          Finalizar Entrega            ");
-                            System.out.println("=======================================");
-                            entregador.concluirEntrega(115.25);
-                            break;
-                        case 2:
-                            System.out.println("=======================================");
-                            System.out.println("           Suas Entregas               ");
-                            System.out.println("=======================================");
-                            entregador.exibirEntregas();
-                            break;
-                        case 3:
-                            System.out.println("=======================================");
-                            System.out.println("           Suas comissões              ");
-                            System.out.println("=======================================");
-                            entregador.exibirComissoes();
-                            break;
-                        case 4:
-                            System.out.println("=======================================");
-                            System.out.println("      Alterar dados Cadastrais         ");
-                            System.out.println("=======================================");
-                            serviceEntregador.atualizarEntregador("João", "01234567890", "83987585856", "joao@email.com", "r. Esperança, n89", "moto");
-                            break;
+                        switch (opEntregador) {
+                            case 1:
+                                System.out.println("=======================================");
+                                System.out.println("          Finalizar Entrega            ");
+                                System.out.println("=======================================");
+                                entregador.concluirEntrega(115.25);
+                                break;
+                            case 2:
+                                System.out.println("=======================================");
+                                System.out.println("           Suas Entregas               ");
+                                System.out.println("=======================================");
+                                entregador.exibirEntregas();
+                                break;
+                            case 3:
+                                System.out.println("=======================================");
+                                System.out.println("           Suas comissões              ");
+                                System.out.println("=======================================");
+                                entregador.exibirComissoes();
+                                break;
+                            case 4:
+                                System.out.println("=======================================");
+                                System.out.println("      Alterar dados Cadastrais         ");
+                                System.out.println("=======================================");
+                                serviceEntregador.atualizarEntregador("João", "01234567890", "83987585856", "joao@email.com", "r. Esperança, n89", "moto");
+                                break;
 
-                        case 5:
-                            System.out.println("========================================");
-                            System.out.println("Obrigada pela preferência, até a próxima");
-                            System.out.println("              Equipe Imake              ");
-                            System.out.println("========================================");
-                            break;
-                    }
-                } while (opEntregador != 5);
+                            case 5:
+                                System.out.println("========================================");
+                                System.out.println("Obrigada pela preferência, até a próxima");
+                                System.out.println("              Equipe Imake              ");
+                                System.out.println("========================================");
+                                break;
+                        }
+                    } while (opEntregador != 5);
+                }
             }
     }
-
 }
 
 
